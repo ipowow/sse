@@ -68,7 +68,7 @@ func (s *Server) HTTPHandler(w http.ResponseWriter, r *http.Request) {
 				fmt.Fprintf(w, "error: %s\n", ev.Error)
 			}
 			if len(ev.Data) > 0 {
-				fmt.Fprintf(w, "data: %s\n", ev.Data)
+				fmt.Fprintf(w, "data: %s\n\n", ev.Data)
 			}
 			flusher.Flush()
 		}
