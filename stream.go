@@ -40,7 +40,7 @@ func (str *Stream) run() {
 			// Add new subscriber
 			case subscriber := <-str.register:
 				str.subscribers = append(str.subscribers, subscriber)
-				str.eventlog.Replay(subscriber)
+				//str.eventlog.Replay(subscriber)
 
 			// Remove closed subscriber
 			case subscriber := <-str.deregister:
@@ -51,7 +51,7 @@ func (str *Stream) run() {
 
 			// Publish event to subscribers
 			case event := <-str.event:
-				str.eventlog.Add(event)
+				//str.eventlog.Add(event)
 				for i := range str.subscribers {
 					str.subscribers[i].connection <- event
 				}
